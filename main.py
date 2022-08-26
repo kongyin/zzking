@@ -123,13 +123,31 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
     day = localtime().tm_mday
     today = datetime.date(datetime(year=year, month=month, day=day))
     week = week_list[today.isoweekday() % 7]
-    # 获取在一起的日子的日期格式
+    
+    # 获取相识的日子的日期格式
+    meet_year = int(config["meet_date"].split("-")[0])
+    meet_month = int(config["meet_date"].split("-")[1])
+    meet_day = int(config["meet_date"].split("-")[2])
+    meet_date = date(meet_year, meet_month, meet_day)
+    # 获取相识的日期差
+    meet_days = str(today.__sub__(meet_date)).split(" ")[0]
+    
+    # 获取恋爱的日子的日期格式
     love_year = int(config["love_date"].split("-")[0])
     love_month = int(config["love_date"].split("-")[1])
     love_day = int(config["love_date"].split("-")[2])
     love_date = date(love_year, love_month, love_day)
-    # 获取在一起的日期差
+    # 获取恋爱的日期差
     love_days = str(today.__sub__(love_date)).split(" ")[0]
+
+    # 获取结婚的日子的日期格式
+    marry_year = int(config["marry_date"].split("-")[0])
+    marry_month = int(config["marry_date"].split("-")[1])
+    marry_day = int(config["marry_date"].split("-")[2])
+    marry_date = date(marry_year, marry_month, marry_day)
+    # 获取结婚的日期差
+    marry_days = str(today.__sub__(marry_date)).split(" ")[0]
+    
     # 获取所有生日数据
     birthdays = {}
     for k, v in config.items():
