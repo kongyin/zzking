@@ -149,12 +149,12 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
     marry_days = str(today.__sub__(marry_date)).split(" ")[0]
     
     # 获取儿子出生日子的日期格式
-    birth_year = int(config["birth_date"].split("-")[0])
-    birth_month = int(config["birth_date"].split("-")[1])
-    birth_day = int(config["birth_date"].split("-")[2])
-    birth_date = date(birth_year, birth_month, birth_day)
+    birth_year = int(config["yizhou_date"].split("-")[0])
+    birth_month = int(config["yizhou_date"].split("-")[1])
+    birth_day = int(config["yizhou_date"].split("-")[2])
+    yizhou_date = date(birth_year, birth_month, birth_day)
     # 获取结婚的日期差
-    birth_days = str(today.__sub__(birth_date)).split(" ")[0]
+    yizhou_days = str(today.__sub__(yizhou_date)).split(" ")[0]
     
     # 获取所有生日数据
     birthdays = {}
@@ -200,7 +200,7 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
                 "color": get_color()
             },
             "birth_day": {
-                "value": birth_days,
+                "value": yizhou_days,
                 "color": get_color()
             },
             "note_en": {
